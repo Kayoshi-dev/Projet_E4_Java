@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pc.epoka_missions">
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -18,6 +19,8 @@
         </activity>
 
         <activity android:name=".MainActivity"></activity>
+        <activity android:name=".SecondActivity"></activity>
+        <activity android:name=".ThirdActivity"></activity>
     </application>
 
 </manifest>

@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
+        android:onClick="onClic"
         android:text="Ajouter une mission" />
 
     <Button

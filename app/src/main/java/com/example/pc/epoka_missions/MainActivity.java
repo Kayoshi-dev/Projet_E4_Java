@@ -22,20 +22,20 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
     }
 
-    public void clic(View view) {
+    public void connexion(View view) {
         EditText numero = (EditText) findViewById(R.id.etNumero);
         EditText password = (EditText) findViewById(R.id.etPassword);
 
 
-        String urlServiceWeb = "http://172.16.47.15/epoka.php?numero=" + numero.getText() +
-                "&password=" + password.getText();
+        String urlServiceWeb = "http://172.16.47.16/Projet_E4_Web/connexion.php?Sal_Id=" + numero.getText() +
+                "&Sal_Pwd=" + password.getText();
 
         try {
-            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
 
             if (numero.getText().toString() != "" && password.getText().toString() != "") {
                 InputStream is = null;
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                StrictMode.setThreadPolicy(policy);
                 URL url = new URL(urlServiceWeb);
                 HttpURLConnection connexion = (HttpURLConnection) url.openConnection();
                 connexion.connect();
@@ -45,10 +45,11 @@ public class MainActivity extends Activity {
                 String ligne = br.readLine();
 
                 try {
-                    Integer.parseInt(ligne);
+                    Integer.parseInt(ligne.substring(0,(ligne.length()-1)));
                     Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
                     intent.putExtra("No", ligne);
                     startActivity(intent);
+                    finish();
                 }
                 catch (Exception expt){
                     Log.e("log_tag", "Votre login n'est pas correcte" + expt.toString());
