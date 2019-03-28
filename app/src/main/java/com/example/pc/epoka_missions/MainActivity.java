@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
                     finish();
                 }
                 catch (Exception expt){
-                    Log.e("log_tag", "Votre login n'est pas correcte" + expt.toString());
+                    Log.e("log_tag", "Votre login n'est pas correct" + expt.toString());
 
                 }
             }
