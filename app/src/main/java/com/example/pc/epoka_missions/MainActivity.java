@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
                 try {
                     Integer.parseInt(ligne.substring(0,(ligne.length()-1)));
                     Intent intent = new Intent(getApplicationContext(), SecondActivity.class);
-                    intent.putExtra("No", ligne);
+                    intent.putExtra("no", Integer.parseInt(numero.getText().toString()));
                     startActivity(intent);
                     finish();
                 }
