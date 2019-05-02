@@ -26,14 +26,14 @@ package com.example.pc.epoka_missions;
 public class ThirdActivity extends Activity {
     Spinner ville;
     TextView msg;
-    int nb;
+    int numero;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
         Bundle extras = getIntent().getExtras();
-        int nb = extras.getInt("no");
+        numero = extras.getInt("no");
         ville = findViewById(R.id.spinner);
         msg = findViewById(R.id.msgErr);
         SetVilleComboBox();
@@ -56,6 +56,7 @@ public class ThirdActivity extends Activity {
         }
 
         public int toInt() {
+
             return this.id;
         }
     }
@@ -98,7 +99,7 @@ public class ThirdActivity extends Activity {
 
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
-            String urlSW = "http://172.16.47.16/Projet_E4_Web/ajout.php?dateDeb="+ etDeb.getText()+"&dateFin="+ etFin.getText()+"&ville="+((ComboBoxItem)ville.getSelectedItem()).toInt()+"&idEm="+nb;
+            String urlSW = "http://172.16.47.16/Projet_E4_Web/ajout.php?dateDeb="+ etDeb.getText()+"&dateFin="+ etFin.getText()+"&ville="+((ComboBoxItem)ville.getSelectedItem()).toInt()+"&idEm="+numero;
             URL url = new URL(urlSW);
             HttpURLConnection connexion = (HttpURLConnection)url.openConnection();
             connexion.connect();

@@ -7,18 +7,16 @@ import android.view.View;
 import android.widget.Toast;
 
 public class SecondActivity extends Activity{
-    int no;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-
     }
 
     public void onClic(View view) {
         Intent intent = new Intent(getApplicationContext(),ThirdActivity.class);
         Bundle extra = getIntent().getExtras();
-        intent.putExtra("no", no);
+        intent.putExtra("no", extra.getInt("no"));
         startActivity(intent);
         finish();
     }
